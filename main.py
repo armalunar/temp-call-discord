@@ -4,10 +4,9 @@ from discord.ext import commands
 intents = discord.Intents.default()
 intents.voice_states = True
 
-# Substitua "TOKEN_DO_SEU_BOT" pelo token do seu bot
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-# Dicionário para armazenar os canais gerados pelo bot para cada membro
+# criei pra armazenar os canais gerados
 generated_channels = {}
 
 @bot.event
@@ -16,7 +15,7 @@ async def on_ready():
 
 @bot.event
 async def on_voice_state_update(member, before, after):
-    # Substitua "ID_DA_CALL_ESPECIFICA" pelo ID da call que deseja monitorar
+    
     specific_call_id = 1223992067336704060
     if before.channel != after.channel:
         # Verifica se o usuário entrou na call específica
@@ -42,5 +41,4 @@ async def on_voice_state_update(member, before, after):
                 # Deleta a entrada do dicionário para liberar memória
                 del generated_channels[member.id]
 
-# Substitua "TOKEN_DO_SEU_BOT" pelo token do seu bot
-bot.run('MTIyOTc3MzIxODY0NzI0NDg1Mg.GcHN4x.Be7uiJkba3Ym7pLsU4dAg14_C52y8W0-MWtdj0')
+bot.run('substitua pelo seu token')
