@@ -16,7 +16,7 @@ async def on_ready():
 @bot.event
 async def on_voice_state_update(member, before, after):
     
-    specific_call_id = 1223992067336704060
+    specific_call_id = 1234567890987632134 # Substitua pelo ID da call
     if before.channel != after.channel:
         # Verifica se o usuário entrou na call específica
         if after.channel is not None and after.channel.id == specific_call_id:
@@ -24,7 +24,7 @@ async def on_voice_state_update(member, before, after):
             guild = member.guild
             category = discord.utils.get(guild.categories, id=category_id)
             # Cria o canal de voz com o nome específico
-            channel_name = f'📞Call de {member.display_name}'
+            channel_name = f'📞{member.display_name} Call'
             channel = await category.create_voice_channel(channel_name)
             # Move o usuário para o novo canal
             await member.move_to(channel)
